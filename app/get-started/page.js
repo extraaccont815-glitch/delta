@@ -85,7 +85,7 @@ export default function GetStartedPage() {
         <div className="text-center max-w-md mx-auto mb-8">
           <h1 className="text-2xl font-bold text-slate-900 mb-2">Select Your Role</h1>
           <p className="text-slate-500 text-sm">
-            Choose how you plan to use Pride to personalize your workspace.
+            Choose how you plan to use <span className=' text-indigo-600'>Dawat</span><span className=' text-emerald-500'>.</span> meet your needs.
           </p>
         </div>
 

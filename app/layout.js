@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: 'Pride.',
+  title: 'Dawat.',
   description: 'Event Marketplace',
   icons: {
     icon: '/favicon.svg',

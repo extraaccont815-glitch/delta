@@ -32,7 +32,7 @@ export default function Navbar() {
           href="/" 
           className="text-2xl font-bold tracking-tight text-gray-900 hover:opacity-50 transition-opacity"
         >
-          Pride<span className="text-emerald-400 text-4xl">.</span>
+          Dawat<span className="text-emerald-400 text-4xl">.</span>
         </Link>
 
         {/* Desktop Navigation */}
