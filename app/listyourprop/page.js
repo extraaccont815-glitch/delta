@@ -441,7 +441,7 @@ export default function ListYourPropertyPage() {
                   label="Anything else (optional)"
                   hint="Parking, rooms, decor rules, timings, and so on."
                 >
-                  <textarea rows={4} placeholder="Tell couples what makes your venue special." {...bind('notes')} />
+                  <textarea rows={4} placeholder="Tell what makes your venue special." {...bind('notes')} />
                 </Field>
               </Section>
 
