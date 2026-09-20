@@ -6,6 +6,8 @@ import { Show, SignInButton, SignUpButton, UserButton } from '@clerk/nextjs';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false);
 
   return (
     <header className="w-full bg-white border-b border-gray-100 shadow-sm relative z-50">
@@ -27,6 +29,47 @@ export default function Navbar() {
           >
             Browse Venues
           </Link>
+
+          {/* Destination Weddings Dropdown */}
+          <div 
+            className="relative"
+            onMouseEnter={() => setIsDropdownOpen(true)}
+            onMouseLeave={() => setIsDropdownOpen(false)}
+          >
+            <button 
+              type="button"
+              className="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors inline-flex items-center gap-1 py-2"
+            >
+              Destination Weddings
+              <svg 
+                className={`w-4 h-4 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            {/* Desktop Dropdown Menu */}
+            {isDropdownOpen && (
+              <div className="absolute top-full left-0 w-48 bg-white border border-gray-100 rounded-lg shadow-lg py-2 animate-in fade-in slide-in-from-top-1 duration-150">
+                <Link 
+                  href="/destination-weddings/india" 
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors"
+                >
+                  Pan India
+                </Link>
+                <Link 
+                  href="/destination-weddings/foreign" 
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors"
+                >
+                  Foreign
+                </Link>
+              </div>
+            )}
+          </div>
+
           <Link 
             href="/contact" 
             className="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors"
@@ -61,7 +104,7 @@ export default function Navbar() {
           </Show>
         </nav>
 
-        {/* Mobile Controls (User Avatar + Animated Rounded Hamburger) */}
+        {/* Mobile Controls */}
         <div className="flex md:hidden items-center gap-3">
           <Show when="signed-in">
             <UserButton afterSignOutUrl="/" />
@@ -85,7 +128,6 @@ export default function Navbar() {
                 strokeLinecap="round" 
                 strokeLinejoin="round"
               >
-                {/* Top Line */}
                 <line 
                   x1="3" 
                   y1="6" 
@@ -95,7 +137,6 @@ export default function Navbar() {
                     isMenuOpen ? 'rotate-45 translate-y-[6px]' : ''
                   }`} 
                 />
-                {/* Middle Line */}
                 <line 
                   x1="3" 
                   y1="12" 
@@ -105,7 +146,6 @@ export default function Navbar() {
                     isMenuOpen ? 'opacity-0 scale-0' : 'opacity-100'
                   }`} 
                 />
-                {/* Bottom Line */}
                 <line 
                   x1="3" 
                   y1="18" 
@@ -125,11 +165,11 @@ export default function Navbar() {
       <div 
         className={`fixed inset-x-0 top-16 bg-white border-b border-gray-100 shadow-xl md:hidden transition-all duration-300 ease-in-out transform origin-top overflow-hidden ${
           isMenuOpen 
-            ? 'max-h-96 opacity-100 translate-y-0' 
+            ? 'max-h-[500px] opacity-100 translate-y-0' 
             : 'max-h-0 opacity-0 -translate-y-2 pointer-events-none'
         }`}
       >
-        <div className="px-4 py-6 space-y-4 flex flex-col">
+        <div className="px-4 py-6 space-y-2 flex flex-col">
           <Link 
             href="/venues" 
             onClick={() => setIsMenuOpen(false)}
@@ -137,6 +177,44 @@ export default function Navbar() {
           >
             Browse Venues
           </Link>
+
+          {/* Mobile Accordion for Destination Weddings */}
+          <div>
+            <button
+              onClick={() => setIsMobileDropdownOpen(!isMobileDropdownOpen)}
+              className="w-full flex items-center justify-between text-base font-medium text-gray-800 hover:text-emerald-600 py-2 px-3 rounded-lg hover:bg-emerald-50/50 transition-colors"
+            >
+              Destination Weddings
+              <svg 
+                className={`w-4 h-4 transition-transform duration-200 ${isMobileDropdownOpen ? 'rotate-180' : ''}`} 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            {isMobileDropdownOpen && (
+              <div className="pl-6 space-y-1 my-1">
+                <Link 
+                  href="/destination-weddings/india" 
+                  onClick={() => setIsMenuOpen(false)}
+                  className="block text-sm font-medium text-gray-600 hover:text-emerald-600 py-2 px-3 rounded-lg hover:bg-emerald-50/50 transition-colors"
+                >
+                  Pan India
+                </Link>
+                <Link 
+                  href="/destination-weddings/foreign" 
+                  onClick={() => setIsMenuOpen(false)}
+                  className="block text-sm font-medium text-gray-600 hover:text-emerald-600 py-2 px-3 rounded-lg hover:bg-emerald-50/50 transition-colors"
+                >
+                  Foreign
+                </Link>
+              </div>
+            )}
+          </div>
+
           <Link 
             href="/contact" 
             onClick={() => setIsMenuOpen(false)}
