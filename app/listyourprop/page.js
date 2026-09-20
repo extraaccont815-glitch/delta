@@ -358,7 +358,7 @@ export default function ListYourPropertyPage() {
               <Section
                 number="2"
                 title="The venue"
-                description="The basics look at first."
+                description="List down the details of your property."
                 className="border-t border-gray-100 pt-8"
               >
                 <Field id="venueName" label="Venue name" error={errors.venueName}>
@@ -396,7 +396,7 @@ export default function ListYourPropertyPage() {
               <Section
                 number="3"
                 title="Pricing"
-                description="Starting prices are fine. You can discuss details with each enquiry."
+                description="Starting prices are fine.
                 className="border-t border-gray-100 pt-8"
               >
                 <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
