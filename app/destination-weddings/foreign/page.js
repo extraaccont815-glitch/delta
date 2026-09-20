@@ -6,36 +6,48 @@ export default function ForeignWeddingPage() {
       title: 'Bali, Indonesia',
       subtitle: 'Clifftop Resorts & Tropical Villas',
       description: 'Say "I do" over dramatic ocean cliffs, sunset beaches, and lush rainforest sanctuaries.',
+      startingPrice: '₹20,00,000 ($24,000)',
+      guestEstimate: '80–120 Guests • 2 Nights',
       tag: 'Tropical Island',
     },
     {
       title: 'Tuscany, Italy',
       subtitle: 'Rolling Hills & Historic Vineyards',
       description: 'Host intimate rustic feasts in centuries-old Italian villas surrounded by cypress trees and olive groves.',
+      startingPrice: '₹35,00,000 (€38,000)',
+      guestEstimate: '50–80 Guests • 2 Nights',
       tag: 'European Romance',
     },
     {
       title: 'Phuket & Krabi, Thailand',
       subtitle: 'Private Beachfronts & Luxury Islands',
       description: 'Unwind with turquoise waters, golden sunsets, and world-class hospitality for exotic coastal celebrations.',
+      startingPrice: '₹15,00,000 ($18,000)',
+      guestEstimate: '100–150 Guests • 2 Nights',
       tag: 'Exotic Coastal',
     },
     {
       title: 'Santorini, Greece',
       subtitle: 'Caldera Views & Aegean Charm',
       description: 'Iconic white-washed architecture paired with panoramic volcanic cliffside backdrops.',
+      startingPrice: '₹30,00,000 (€33,000)',
+      guestEstimate: '40–70 Guests • 2 Nights',
       tag: 'Mediterranean',
     },
     {
       title: 'Dubai, UAE',
       subtitle: 'Ultra-Luxury Hotels & Desert Dunes',
       description: 'From sprawling ballroom galas to high-end desert resort soirées under the Arabian stars.',
+      startingPrice: '₹40,00,000 ($48,000)',
+      guestEstimate: '150–250 Guests • 2 Nights',
       tag: 'Modern Luxury',
     },
     {
       title: 'Maldives',
       subtitle: 'Overwater Bungalows & Private Atolls',
       description: 'The ultimate barefoot luxury experience for exclusive intimate ceremonies and island buyouts.',
+      startingPrice: '₹28,00,000 ($33,000)',
+      guestEstimate: '30–50 Guests • 2 Nights',
       tag: 'Private Island',
     },
   ];
@@ -51,7 +63,7 @@ export default function ForeignWeddingPage() {
           World-Class Destination Weddings
         </h1>
         <p className="text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-          Explore magical global locations, luxury resorts, and idyllic islands for a breathtaking celebration abroad.
+          Explore magical global locations, luxury resorts, and idyllic islands with starting package estimations.
         </p>
       </div>
 
@@ -77,14 +89,21 @@ export default function ForeignWeddingPage() {
               <p className="text-slate-300 text-sm mt-4 leading-relaxed">
                 {item.description}
               </p>
+
+              {/* Pricing Box */}
+              <div className="mt-6 p-3.5 rounded-xl bg-slate-900/60 border border-slate-700/50">
+                <div className="text-xs text-slate-400 font-medium">Estimated Package Starts At</div>
+                <div className="text-xl font-bold text-amber-400 mt-0.5">{item.startingPrice}</div>
+                <div className="text-xs text-slate-400 mt-1">{item.guestEstimate}</div>
+              </div>
             </div>
 
-            <div className="mt-8 pt-4 border-t border-slate-700/50 flex items-center justify-between">
+            <div className="mt-6 pt-4 border-t border-slate-700/50 flex items-center justify-between">
               <Link
                 href={`/venues?location=${encodeURIComponent(item.title)}`}
                 className="text-sm font-semibold text-amber-400 hover:text-amber-300 inline-flex items-center gap-1.5 transition-colors"
               >
-                View Venues
+                View Venues & Details
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                 </svg>
@@ -107,7 +126,7 @@ export default function ForeignWeddingPage() {
             href="/contact"
             className="w-full sm:w-auto px-8 py-3.5 text-sm font-semibold text-slate-900 bg-amber-400 rounded-xl hover:bg-amber-300 transition-all shadow-md active:scale-95"
           >
-            Get Free Consultation
+            Get Custom Quote
           </Link>
           <Link
             href="/venues"
