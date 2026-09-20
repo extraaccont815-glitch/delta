@@ -358,7 +358,7 @@ export default function ListYourPropertyPage() {
               <Section
                 number="2"
                 title="The venue"
-                description="The basics couples look at first."
+                description="The basics look at first."
                 className="border-t border-gray-100 pt-8"
               >
                 <Field id="venueName" label="Venue name" error={errors.venueName}>
