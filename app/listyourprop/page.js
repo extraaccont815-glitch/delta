@@ -358,7 +358,7 @@ export default function ListYourPropertyPage() {
               <Section
                 number="2"
                 title="The venue"
-                description="List down the details of your property."
+                description="The basics couples look at first."
                 className="border-t border-gray-100 pt-8"
               >
                 <Field id="venueName" label="Venue name" error={errors.venueName}>
@@ -396,7 +396,7 @@ export default function ListYourPropertyPage() {
               <Section
                 number="3"
                 title="Pricing"
-                description="Starting prices are fine.
+                description="Starting prices are fine. You can discuss details with each enquiry."
                 className="border-t border-gray-100 pt-8"
               >
                 <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
@@ -441,7 +441,7 @@ export default function ListYourPropertyPage() {
                   label="Anything else (optional)"
                   hint="Parking, rooms, decor rules, timings, and so on."
                 >
-                  <textarea rows={4} placeholder="Tell what makes your venue special." {...bind('notes')} />
+                  <textarea rows={4} placeholder="Tell couples what makes your venue special." {...bind('notes')} />
                 </Field>
               </Section>
 
